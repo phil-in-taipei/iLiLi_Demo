@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<!-- Full-width hero image -->
+<div class="container-fluid p-0">
+  <img src="{% static 'iLiLi/img/top_photo.png' %}"
+       alt="iLiLi Club"
+       class="img-fluid w-100">
+</div>
+
+<!-- Content section -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h1>iLiLi Club is a learning connector.</h1>
+
+      <h3>About Us</h3>
+      <p>Subheading that sets up context, shares more info about the website, or generally gets people psyched to keep scrolling. (2-3 sentences about our brand core, what we do) Subheading that sets up context, shares more info about the website, or generally gets people psyched to keep scrolling. (2-3 sentences about our brand core, what we do) Subheading that sets up context, shares more info about the website, or generally gets people psyched to keep scrolling.</p>
+
+      <h1>Our Mission</h1>
+      <p>(2-3 sentences about our brand core, what we do) Subheading that sets up context, shares more info about the website, or generally gets people psyched to keep scrolling.</p>
+
+      <h1>Our Vision</h1>
+      <p>(2-3 sentences about our brand core, what we do) Subheading that sets up context, shares more info about the website, or generally gets people psyched to keep scrolling.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Three cards section -->
+<div class="container my-5">
+  <div class="row g-4">
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="{% static 'iLiLi/img/row_1_col_1.png' %}"
+             class="card-img-top"
+             alt="Precise match">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Precise match(精準配對)</h5>
+          <p class="card-text">(short intro) Body text for whatever you'd like to add more to the subheading.</p>
+          <a href="{% url 'join_info:form' %}"
+             class="btn btn-dark mt-auto ms-auto">Join Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="{% static 'iLiLi/img/row_1_col_2.png' %}"
+             class="card-img-top"
+             alt="2 Cities">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">2 Cities (雙城啟動)</h5>
+          <p class="card-text">(short intro) Body text for whatever you'd like to expand on the main point.</p>
+          <a href="{% url 'join_info:form' %}"
+             class="btn btn-dark mt-auto ms-auto">Join Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="{% static 'iLiLi/img/row_1_col_3.png' %}"
+             class="card-img-top"
+             alt="Teachers">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Teachers(良師益友)</h5>
+          <p class="card-text">(short intro) Body text for whatever you'd like to share more.</p>
+          <a href="{% url 'join_info:form' %}"
+             class="btn btn-dark mt-auto ms-auto">Join Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

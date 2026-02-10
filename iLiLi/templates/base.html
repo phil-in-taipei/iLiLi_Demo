@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>iLiLi</title>
+
+        {% load django_bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <link rel="stylesheet" href="{% static 'iLiLi/css/master.css' %}">
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <div class="container">
+            <div class="mt-4 p-5 rounded">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+        {% include 'footer.html' %}
+        <script src="{% static 'iLiLi/js/master.js' %}"></script>
+    </body>
+
+</html>
