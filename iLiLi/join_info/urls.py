@@ -1,10 +1,10 @@
 from django.urls import path
 
-from .views import join_form
+from .views import join_form, questionnaire_form, questionnaire_success
 
 app_name = 'join_info'
 urlpatterns = [
-    path('form/', join_form, name='form'),
-    #path('register/', register, name='register'),
-    #path('logout/', user_logout, name='logout'),
+    #path('form/', join_form, name='form'),
+    path('form/', questionnaire_form, name='form'),
+    path('success/', questionnaire_success, name='success'),
 ]

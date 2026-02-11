@@ -2,7 +2,123 @@
 
 {% block content %}
 {% load django_bootstrap5 %}
-<h1>Join Us!</h1>
 
+<div class="container my-5">
+    <h1>Join Us - Student Questionnaire</h1>
+    <p class="lead">Help us match you with the perfect learning experience!</p>
+
+    <form method="POST" class="questionnaire-form" action=".">
+        {% csrf_token %}
+
+        {# Questions 1-4: Simple fields #}
+        {% bootstrap_field form.full_name %}
+        {% bootstrap_field form.preferred_contact_method %}
+        {% bootstrap_field form.contact_detail %}
+        {% bootstrap_field form.age_range %}
+        {% bootstrap_field form.learning_type %}
+
+        {# Question 5: Language checkboxes #}
+        <div class="mb-3">
+            <label class="form-label fw-bold">5. If language, which language(s)?</label>
+            <div class="form-check">
+                {{ form.language_english }} <label class="form-check-label" for="{{ form.language_english.id_for_label }}">English</label>
+            </div>
+            <div class="form-check">
+                {{ form.language_mandarin }} <label class="form-check-label" for="{{ form.language_mandarin.id_for_label }}">Mandarin Chinese</label>
+            </div>
+            <div class="form-check">
+                {{ form.language_french }} <label class="form-check-label" for="{{ form.language_french.id_for_label }}">French</label>
+            </div>
+            <div class="form-check">
+                {{ form.language_korean }} <label class="form-check-label" for="{{ form.language_korean.id_for_label }}">Korean</label>
+            </div>
+            <div class="form-check">
+                {{ form.language_other.label_tag }}
+                {{ form.language_other }}
+            </div>
+        </div>
+
+        {% bootstrap_field form.current_level %}
+        {% bootstrap_field form.studied_before %}
+
+        {# Question 8: Goals checkboxes #}
+        <div class="mb-3">
+            <label class="form-label fw-bold">8. What is your main goal? (Select all that apply)</label>
+            <div class="form-check">
+                {{ form.goal_conversation }} <label class="form-check-label" for="{{ form.goal_conversation.id_for_label }}">Conversation / real-life use</label>
+            </div>
+            <div class="form-check">
+                {{ form.goal_school_prep }} <label class="form-check-label" for="{{ form.goal_school_prep.id_for_label }}">School or study abroad preparation</label>
+            </div>
+            <div class="form-check">
+                {{ form.goal_work }} <label class="form-check-label" for="{{ form.goal_work.id_for_label }}">Work / professional use</label>
+            </div>
+            <div class="form-check">
+                {{ form.goal_personal }} <label class="form-check-label" for="{{ form.goal_personal.id_for_label }}">Personal interest/hobby</label>
+            </div>
+            <div class="form-check">
+                {{ form.goal_cultural }} <label class="form-check-label" for="{{ form.goal_cultural.id_for_label }}">Cultural experience</label>
+            </div>
+            <div class="form-check">
+                {{ form.goal_confidence }} <label class="form-check-label" for="{{ form.goal_confidence.id_for_label }}">Confidence building</label>
+            </div>
+            <div class="mt-2">
+                {{ form.goal_other.label_tag }}
+                {{ form.goal_other }}
+            </div>
+        </div>
+
+        {% bootstrap_field form.class_format %}
+        {% bootstrap_field form.preferred_location %}
+        {% bootstrap_field form.location_other %}
+        {% bootstrap_field form.class_type %}
+        {% bootstrap_field form.preferred_schedule %}
+        {% bootstrap_field form.teacher_style %}
+        {% bootstrap_field form.teacher_style_other %}
+
+        {# Question 14: Topics checkboxes #}
+        <div class="mb-3">
+            <label class="form-label fw-bold">14. Would you like to learn through specific topics or interests? (Select all that apply)</label>
+            <div class="form-check">
+                {{ form.topic_business }} <label class="form-check-label" for="{{ form.topic_business.id_for_label }}">Business / Workplace communication</label>
+            </div>
+            <div class="form-check">
+                {{ form.topic_technology }} <label class="form-check-label" for="{{ form.topic_technology.id_for_label }}">Technology / Computer Science</label>
+            </div>
+            <div class="form-check">
+                {{ form.topic_music_arts }} <label class="form-check-label" for="{{ form.topic_music_arts.id_for_label }}">Music / Arts / Creative fields</label>
+            </div>
+            <div class="form-check">
+                {{ form.topic_film_media }} <label class="form-check-label" for="{{ form.topic_film_media.id_for_label }}">Film / Media / Content creation</label>
+            </div>
+            <div class="form-check">
+                {{ form.topic_travel }} <label class="form-check-label" for="{{ form.topic_travel.id_for_label }}">Travel & daily life</label>
+            </div>
+            <div class="form-check">
+                {{ form.topic_culture }} <label class="form-check-label" for="{{ form.topic_culture.id_for_label }}">Culture & social topics</label>
+            </div>
+            <div class="form-check">
+                {{ form.topic_academic }} <label class="form-check-label" for="{{ form.topic_academic.id_for_label }}">Academic subjects</label>
+            </div>
+            <div class="form-check">
+                {{ form.topic_exam_prep }} <label class="form-check-label" for="{{ form.topic_exam_prep.id_for_label }}">Exam preparation</label>
+            </div>
+            <div class="form-check">
+                {{ form.topic_casual }} <label class="form-check-label" for="{{ form.topic_casual.id_for_label }}">Casual conversation</label>
+            </div>
+            <div class="mt-2">
+                {{ form.topic_other.label_tag }}
+                {{ form.topic_other }}
+            </div>
+        </div>
+
+        {% bootstrap_field form.specific_topic_interest %}
+        {% bootstrap_field form.additional_notes %}
+
+        <input type="submit" class="btn btn-dark btn-lg mt-3"
+               id="submit-questionnaire" value="Submit">
+    </form>
+</div>
 
 {% endblock %}
+

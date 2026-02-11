@@ -1,5 +1,7 @@
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .forms import StudentQuestionnaireForm
 
 def join_form(request, *args, **kwargs):
     #form = UserLoginForm(request.POST or None)
@@ -13,4 +15,25 @@ def join_form(request, *args, **kwargs):
     #    else:
     #        return HttpResponseRedirect("/user-profiles/create-profile") # redirect to a landing page
     context = {} #{"form": form}
-    return render(request, "join_info/join_form.html", context)
+    return render(request, "join_info/join_page.html", context)
+
+
+def questionnaire_form(request):
+    if request.method == 'POST':
+        form = StudentQuestionnaireForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('join_info:success'))
+    else:
+        form = StudentQuestionnaireForm()
+
+    context = {
+        "form": form,
+    }
+    template = "join_info/join_form.html"
+    return render(request, template, context)
+
+
+def questionnaire_success(request):
+    template = "join_info/join_success.html"
+    return render(request, template)
